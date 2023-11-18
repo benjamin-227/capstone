@@ -105,3 +105,5 @@ Navigation will be easily accessibly using a left-hand side bar. Break points wi
 ![SWOT](./img/extra/imperium_SWOT.JPG)
 
 ## User Flow Diagram
+
+![user flow diagram](./img/extra/user_flow_diagram.jpg)
