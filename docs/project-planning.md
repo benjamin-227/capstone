@@ -107,3 +107,13 @@ Navigation will be easily accessibly using a left-hand side bar. Break points wi
 ## User Flow Diagram
 
 ![user flow diagram](./img/extra/user_flow_diagram.jpg)
+
+## Persona 1
+
+![persona 1](./img/extra/persona_1.JPG)
+
+## Mural
+
+-[link to mural](https://app.mural.co/t/bensworkspace5177/m/bensworkspace5177/1699581536523/bf36615e694b7cbb0347155ed7993719059e8375?sender=ud8eb27b92d807140b2500254)
+
+![mural](./img/extra/mural.JPG)
