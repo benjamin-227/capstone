@@ -1,0 +1,154 @@
+:root {
+  --color-bg: #FFFFFF;
+  --color-card-bg: #EFEFEF;
+  --color-text: #171E2A;
+  --brand-color: #06AF74;
+  --color-gray-light: #86848c;
+}
+
+* {
+  list-style: none;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  appearance: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+.dark_mode {
+  --color-bg: #16171B;
+  --color-card-bg: #212226;
+  --color-text: #DFE1E4;
+
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+
+
+/* Header Section */
+
+header {
+  width: 100%;
+  background: var(--color-card-bg);
+  padding: 1rem 0;
+}
+
+header .box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 97%;
+  margin: 0 auto;
+}
+
+header .box .logo {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+header .box .logo img {
+  width: 3rem;
+  height: auto;
+  border-radius: .75rem;
+}
+
+header .search {
+  display: flex;
+  align-items: center;
+  padding: .75rem;
+  border-radius: .3rem;
+  width: 32vw;
+  gap: 1rem;
+  background-color: var(--color-bg);
+  color: var(--color-gray-light);
+
+}
+
+header .search input {
+  background: transparent;
+  width: 100%;
+}
+
+header .account-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+header .account-area .theme-btn {
+  display: flex;
+  width: 5rem;
+  height: 2rem;
+  background-color: var(--color-bg);
+  border-radius: .75rem;
+  cursor: pointer;
+}
+
+header .account-area .theme-btn span {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+/* Nav or sidebar */
+
+nav {
+  background-color: var(--color-card-bg);
+  width: 16rem;
+  position: fixed;
+  height: 100%;
+
+}
+
+nav .sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+nav .sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  height: 4rem;
+  padding-left: 25px;
+  color: inherit;
+}
+
+nav .sidebar a li {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+nav .sidebar a:active {
+  color: var(--brand-color);
+}
+
+
+/* Main content */
+
+main {
+  margin-left: 16rem;
+  padding: 1rem;
+}
+
+/* Footer */
