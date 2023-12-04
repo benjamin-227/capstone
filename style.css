@@ -97,7 +97,7 @@ header .account-area .theme-btn {
   width: 5rem;
   height: 2rem;
   background-color: var(--color-bg);
-  border-radius: .75rem;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -108,6 +108,12 @@ header .account-area .theme-btn span {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+}
+
+header .account-area .theme-btn .active {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  border-radius: 6px;
 }
 /* Nav or sidebar */
 
@@ -125,18 +131,19 @@ nav .sidebar {
   margin-top: 15px;
 }
 
-nav .sidebar a {
+nav .sidebar li {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   height: 4rem;
   padding-left: 25px;
-  color: inherit;
+
 }
 
-nav .sidebar a li {
+nav .sidebar li a {
   font-size: 1.1rem;
   font-weight: 500;
+  color: inherit;
 }
 
 nav .sidebar a:active {
@@ -149,6 +156,101 @@ nav .sidebar a:active {
 main {
   margin-left: 16rem;
   padding: 1rem;
+  height: 100%;
+
 }
 
+.add-animal-btn {
+  color: var(--brand-color);
+  border-radius: 1.5rem;
+  border: 1px solid var(--brand-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 25px;
+}
+
+/* Animal form */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.container .animal-form h1 {
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.animal-form {
+  position: relative;
+  background-color: var(--color-card-bg);
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px var(--color-card-bg);
+}
+
+form .row {
+  display: flex;
+  column-gap: 15px;
+}
+
+.input-box {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.row .more {
+  flex-grow: 2;
+}
+
+.animal-form input, select {
+  position: relative;
+  height: 50px;
+  padding: 15px;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 6px;
+
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  justify-content: flex-end;
+}
+
+.submit-button .clear-form {
+  width: 110px;
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #ef5350;
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.submit-button input {
+  width: 150px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--brand-color);
+  cursor: pointer;
+}
+
+.submit-button input:hover {
+  background-color: white;
+  color: black;
+}
 /* Footer */
