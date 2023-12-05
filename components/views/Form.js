@@ -1,20 +1,26 @@
 import html from "html-literal";
 
-export default () => html`
+export default form => html`
   <main>
     <div class="container">
       <div class="animal-form">
         <h1>Add New Animal</h1>
-        <form method="POST" id="animal-form">
+        <form id="animal-form" onsubmit="form.handleFormSubmit(event)">
           <div class="row">
             <div class="more">
               <label for="name">Name</label>
-              <input id="name" type="text" name="name" placeholder="Name" />
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+              />
             </div>
             <div class="less">
               <label for="sex">Sex</label>
-              <select id="sex" name="sex">
-                <option value="" hidden>Select sex</option>
+              <select id="sex" name="sex" required>
+                <option value="" disabled selected hidden>Select sex</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
@@ -23,71 +29,76 @@ export default () => html`
           <div class="row">
             <div class="input-box">
               <label for="color">Color</label>
+              <select id="color" name="color" required>
+                <option value="" disabled selected hidden>Select color</option>
+                <option value="Black">Black</option>
+                <option value="Grey">Grey</option>
+                <option value="Brown">Brown</option>
+                <option value="Caramel">Caramel</option>
+                <option value="Albino">Albino</option>
+                <option value="Apricot">Apricot</option>
+                <option value="Cinnacot">Cinnacot</option>
+                <option value="Cinnamon">Cinnamon</option>
+                <option value="Platinum">Platinum</option>
+                <option value="Leusistic">Leusistic</option>
+                <option value="Piebald">Piebald</option>
+              </select>
+            </div>
+            <div class="input-box">
+              <label for="eye-color">Eye Color</label>
+              <select id="eye-color" name="eye-color" required>
+                <option value="" disabled selected hidden
+                  >Select eye color</option
+                >
+                <option value="Black">Black</option>
+                <option value="black-red">Odd Eyed (Black & Red)</option>
+                <option value="red-ruby">Odd Eyed (Red & Ruby)</option>
+                <option value="Red">Red</option>
+                <option value="Ruby">Ruby</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-box">
+              <label for="sire">Sire</label>
               <input
                 type="text"
-                list="colors"
-                name="color"
-                id="color"
-                placeholder="Select color"
+                name="sire"
+                id="sire"
+                placeholder="Enter sire name"
+                required
               />
-              <datalist id="colors">
-                <option value="Black"></option>
-                <option value="Grey"></option>
-                <option value="Brown"></option>
-                <option value="Caramel"></option>
-                <option value="Albino"></option>
-                <option value="Apricot"></option>
-                <option value="Cinnacot"></option>
-                <option value="Cinnamon"></option>
-                <option value="Platinum"></option>
-                <option value="Leusistic"></option>
-                <option value="Piebald"></option>
-              </datalist>
             </div>
             <div class="input-box">
-              <label>Eye Color</label>
+              <label for="dam">Dam</label>
               <input
                 type="text"
-                list="eye-colors"
-                name="eye-color"
-                placeholder="Select eye color"
+                name="dam"
+                id="dam"
+                placeholder="Enter dam name"
+                required
               />
-              <datalist id="eye-colors">
-                <option value="Black"></option>
-                <option value="Odd Eyed (Black & Red)"></option>
-                <option value="Odd Eyed (Red & Ruby)"></option>
-                <option value="Red"></option>
-                <option value="Ruby"></option>
-              </datalist>
             </div>
           </div>
           <div class="row">
             <div class="input-box">
-              <label>Sire</label>
-              <input type="text" name="sire" placeholder="Enter sire name" />
+              <label for="dob">Date of Birth</label>
+              <input type="date" name="dob" id="dob" required />
             </div>
             <div class="input-box">
-              <label>Dam</label>
-              <input type="text" name="dam" placeholder="Enter dam name" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-box">
-              <label>Date of Birth</label>
-              <input type="date" name="dob" />
-            </div>
-            <div class="input-box">
-              <label>Date of Death</label>
-              <input type="date" name="dod" />
+              <label for="dod">Date of Death</label>
+              <input type="date" name="dod" id="dod" />
             </div>
           </div>
           <div class="row">
             <div class="input-box">
-              <label>Breeder</label>
+              <label for="breeder">Breeder</label>
               <input
                 type="text"
                 name="breeder"
                 placeholder="Enter name of breeder"
+                id="breeder"
+                required
               />
             </div>
             <div class="input-box">
@@ -95,12 +106,15 @@ export default () => html`
               <input
                 type="text"
                 name="owner"
+                id="owner"
                 placeholder="Enter name of current owner"
               />
             </div>
           </div>
           <div class="submit-button">
-            <button class="clear-form">clear</button>
+            <button class="clear-form" type="button" onclick="form.resetForm()">
+              clear
+            </button>
             <input type="submit" value="submit" />
           </div>
         </form>
