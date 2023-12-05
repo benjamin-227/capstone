@@ -21,6 +21,10 @@ html {
   font-size: 16px;
 }
 
+input::placeholder {
+  color: var(--color-text);
+}
+
 .dark_mode {
   --color-bg: #16171B;
   --color-card-bg: #212226;
@@ -60,6 +64,10 @@ header .box .logo {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+
+header .box .logo p {
+  font-weight: 600;
 }
 
 header .box .logo img {
@@ -136,8 +144,10 @@ nav .sidebar li {
   align-items: center;
   gap: 1.2rem;
   height: 4rem;
-  padding-left: 25px;
+  padding-left: 40px;
 
+  border-radius: 10px;
+  margin: 10px 5px;
 }
 
 nav .sidebar li a {
@@ -146,9 +156,10 @@ nav .sidebar li a {
   color: inherit;
 }
 
-nav .sidebar a:active {
-  color: var(--brand-color);
+nav .sidebar li:hover {
+  background-color: rgb(6,175,116, .35);
 }
+
 
 
 /* Main content */
@@ -157,8 +168,9 @@ main {
   margin-left: 16rem;
   padding: 1rem;
   height: 100%;
-
 }
+
+
 
 .add-animal-btn {
   color: var(--brand-color);
@@ -217,8 +229,10 @@ form .row {
   width: 100%;
   margin-top: 8px;
   border-radius: 6px;
-
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
+
 
 .submit-button {
   display: flex;
@@ -250,7 +264,12 @@ form .row {
 }
 
 .submit-button input:hover {
-  background-color: white;
-  color: black;
+  background-color: #49C69A;
+
 }
+
+.submit-button .clear-form:hover {
+  background-color: #FF7471;
+}
+
 /* Footer */

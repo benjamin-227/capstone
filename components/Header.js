@@ -1,11 +1,11 @@
 import html from "html-literal";
-import myLogo from "../assets/magpie.logo.jpg";
+import logo from "../assets/imperium.png";
 
 export default () => html`
   <header>
     <div class="box">
       <div class="logo">
-        <img src="${myLogo}" alt="Imperium Logo" />
+        <img src="${logo}" alt="Imperium Logo" id="logoImage" />
         <p>imperium</p>
       </div>
 
