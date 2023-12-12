@@ -16,14 +16,32 @@ function render(state = store.Dashboard) {
   router.updatePageLinks();
 
   if (state.view === "Form") {
-    const formElement = document.getElementById("animal-form");
-    if (formElement) {
-      formElement.onsubmit = store.Form.handleFormSubmit.bind(store.Form);
-      const clearButton = document.querySelector(".clear-form");
-      if (clearButton) {
-        clearButton.onclick = store.Form.resetForm.bind(store.Form);
-      }
-    }
+    document.getElementById("animal-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const inputs = event.target.elements;
+      const hedgehogData = {
+        name: inputs.name.value.toLowerCase(),
+        sex: inputs.sex.value.toLowerCase(),
+        color: inputs.color.value.toLowerCase(),
+        eyeColor: inputs.eyeColor.value.toLowerCase(),
+        sire: inputs.sire.value.toLowerCase(),
+        dam: inputs.dam.value.toLowerCase(),
+        dob: inputs.dob.value.toLowerCase(),
+        dod: inputs.dod.value || null,
+        breeder: inputs.breeder.value.toLowerCase(),
+        owner: inputs.owner.value.toLowerCase() || null
+      };
+      console.log(hedgehogData);
+      axios
+        .post(`http://localhost:4040/hedgehogs`, hedgehogData)
+        .then(res => {
+          store.Animals.hedgehogs.push(res.data);
+          router.navigate("/Animals");
+        })
+        .catch(error => {
+          console.log("Something went wrong", error);
+        });
+    });
   }
 
   const themeButton = document.querySelector(".theme-btn");
@@ -32,20 +50,38 @@ function render(state = store.Dashboard) {
   });
 }
 
-// router.hooks({
-//   before: (done, params) => {
-//     const view = params && params.data && params.data.view ? capitalize(params.data.view) : "Dashboard";
-//     switch(view) {
-//       case "Form":
-
-//     }
-
-//   },
-//   already: (params) => {
-//     const view = params && params.data && params.data.view ? capitalize(params.data.view) : "Dashboard";
-//     render(store[view]);
-//   }
-// })
+router.hooks({
+  before: (done, params) => {
+    const view =
+      params && params.data && params.data.view
+        ? capitalize(params.data.view)
+        : "Dashboard";
+    switch (view) {
+      case "Animals":
+        axios
+          .get(`http://localhost:4040/hedgehogs`)
+          .then(res => {
+            console.log("response", res);
+            store.Animals.hedgehogs = res.data;
+            done();
+          })
+          .catch(error => {
+            console.log("We had an error", error);
+            done();
+          });
+        break;
+      default:
+        done();
+    }
+  },
+  already: params => {
+    const view =
+      params && params.data && params.data.view
+        ? capitalize(params.data.view)
+        : "Dashboard";
+    render(store[view]);
+  }
+});
 
 router
   .on({

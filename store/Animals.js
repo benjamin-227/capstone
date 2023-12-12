@@ -1,3 +1,4 @@
 export default {
-  view: "Animals"
+  view: "Animals",
+  hedgehogs: []
 };
