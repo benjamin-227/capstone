@@ -5,7 +5,7 @@ export default form => html`
     <div class="container">
       <div class="animal-form">
         <h1>Add New Animal</h1>
-        <form id="animal-form" onsubmit="form.handleFormSubmit(event)">
+        <form id="animal-form">
           <div class="row">
             <div class="more">
               <label for="name">Name</label>
@@ -21,8 +21,9 @@ export default form => html`
               <label for="sex">Sex</label>
               <select id="sex" name="sex" required>
                 <option value="" disabled selected hidden>Select sex</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+                <option value="u">Unsexed</option>
               </select>
             </div>
           </div>
@@ -46,7 +47,7 @@ export default form => html`
             </div>
             <div class="input-box">
               <label for="eye-color">Eye Color</label>
-              <select id="eye-color" name="eye-color" required>
+              <select id="eye-color" name="eyeColor" required>
                 <option value="" disabled selected hidden
                   >Select eye color</option
                 >
@@ -112,7 +113,7 @@ export default form => html`
             </div>
           </div>
           <div class="submit-button">
-            <button class="clear-form" type="button" onclick="form.resetForm()">
+            <button class="clear-form" type="button">
               clear
             </button>
             <input type="submit" value="submit" />
