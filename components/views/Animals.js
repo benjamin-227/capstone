@@ -3,6 +3,7 @@ import html from "html-literal";
 export default state => html`
   <main>
     <div class="card">
+      <a class="add-animal-btn-form" href="/Form">Add Animal</a>
       <table class="animal-table">
         <thead>
           <tr>

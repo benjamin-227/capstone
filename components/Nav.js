@@ -8,7 +8,7 @@ export default links => html`
           .map(
             link =>
               `
-              <li>
+              <li >
                 <span class="material-icons-sharp">${link.icon}</span>
                 <a href="/${link.title}" title="${link.title}" data-navigo>
                 ${link.text}
