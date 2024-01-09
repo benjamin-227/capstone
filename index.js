@@ -48,6 +48,15 @@ function render(state = store.Dashboard) {
   themeButton.addEventListener("click", () => {
     document.body.classList.toggle("dark_mode");
   });
+
+  document.querySelectorAll("nav li").forEach(li => {
+    const link = li.querySelector("a");
+    if (link && link.getAttribute("href") === `/${state.view}`) {
+      li.classList.add("active-link");
+    } else {
+      li.classList.remove("active-link");
+    }
+  });
 }
 
 router.hooks({

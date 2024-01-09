@@ -160,7 +160,9 @@ nav .sidebar li:hover {
   background-color: rgb(6,175,116, .35);
 }
 
-
+.active-link {
+  background-color: rgb(6,175,116, .35);
+}
 
 /* Main content */
 
@@ -316,6 +318,25 @@ form .row {
 .animal-table .material-icons-sharp:hover {
   color: #ef5350;
   cursor: pointer;
+}
+
+.add-animal-btn-form {
+  color: var(--brand-color);
+  border-radius: 8px;
+  border: 2px solid var(--brand-color);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 5px;
+  margin-bottom: 15px;
+  width: 125px;
+  align-self: flex-end;
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-animal-btn-form:hover {
+  background-color: var(--brand-color);
+  color: white;
 }
 
 @media(max-width: 1385px) {
