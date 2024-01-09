@@ -39,6 +39,10 @@ db.once(
   console.log.bind(console, "Successfully opened connection to Mongo!")
 );
 
+app.get("/status", (req, res, next) => {
+  res.send(JSON.stringify({ message: "Service healthy" }));
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
