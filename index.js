@@ -4,6 +4,13 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
 
+let HEDGEHOG_API_URL;
+
+if (process.env.HEDGEHOG_API_URL) {
+  HEDGEHOG_API_URL = process.env.HEDGEHOG_API_URL || "http:localhost:4040";
+} else {
+  console.error("Missing .env file with HEDGEHOG_API_URL");
+}
 const router = new Navigo("/");
 
 function render(state = store.Dashboard) {
@@ -33,7 +40,7 @@ function render(state = store.Dashboard) {
       };
       console.log(hedgehogData);
       axios
-        .post(`http://localhost:4040/hedgehogs`, hedgehogData)
+        .post(`${HEDGEHOG_API_URL}/hedgehogs`, hedgehogData)
         .then(res => {
           store.Animals.hedgehogs.push(res.data);
           router.navigate("/Animals");
@@ -68,7 +75,7 @@ router.hooks({
     switch (view) {
       case "Animals":
         axios
-          .get(`http://localhost:4040/hedgehogs`)
+          .get(`${HEDGEHOG_API_URL}/hedgehogs`)
           .then(res => {
             console.log("response", res);
             store.Animals.hedgehogs = res.data;
