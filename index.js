@@ -51,6 +51,27 @@ function render(state = store.Dashboard) {
     });
   }
 
+  if (state.view === "Pairings") {
+    const randomNameButton = document.getElementById("randomName");
+    randomNameButton.removeEventListener("click", handleRandomNameClick);
+
+    // eslint-disable-next-line no-inner-declarations
+    function handleRandomNameClick() {
+      axios
+        .get("http://localhost:4040/api/random")
+        .then(res => {
+          store.Pairings.randomName = "";
+          store.Pairings.randomName = res.data[0];
+          console.log(res.data[0]);
+          render(store.Pairings);
+        })
+        .catch(error => {
+          console.error("Error fetching random name:", error);
+        });
+    }
+    randomNameButton.addEventListener("click", handleRandomNameClick);
+  }
+
   const themeButton = document.querySelector(".theme-btn");
   themeButton.addEventListener("click", () => {
     document.body.classList.toggle("dark_mode");

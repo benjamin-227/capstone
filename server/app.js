@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import hedgehogs from "./routers/hedgehogs.js";
+import axios from "axios";
 
 dotenv.config();
 
@@ -38,6 +39,24 @@ db.once(
   "open",
   console.log.bind(console, "Successfully opened connection to Mongo!")
 );
+
+app.get("/api/random", async (req, res, next) => {
+  console.log("Request received");
+  try {
+    const response = await axios.get(
+      "https://randommer.io/api/Name?nameType=firstname&quantity=3",
+      {
+        headers: {
+          "X-Api-Key": process.env.RANDOM_NAME_API
+        }
+      }
+    );
+    res.send(response.data);
+  } catch (error) {
+    console.error("Error fetching random name:", error);
+    res.status(500).send("Error fetching name");
+  }
+});
 
 app.get("/status", (req, res, next) => {
   res.send(JSON.stringify({ message: "Service healthy" }));

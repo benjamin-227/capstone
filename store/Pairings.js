@@ -1,3 +1,4 @@
 export default {
-  view: "Pairings"
+  view: "Pairings",
+  randomName: ""
 };
