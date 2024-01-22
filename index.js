@@ -58,7 +58,7 @@ function render(state = store.Dashboard) {
     // eslint-disable-next-line no-inner-declarations
     function handleRandomNameClick() {
       axios
-        .get("http://localhost:4040/api/random")
+        .get(`${HEDGEHOG_API_URL}/api/random`)
         .then(res => {
           store.Pairings.randomName = "";
           store.Pairings.randomName = res.data[0];
